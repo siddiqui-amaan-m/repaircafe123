@@ -24,7 +24,7 @@ def register_view(request):
 
             # Save the user data
             form.save()
-            return HttpResponse("User registered successfully!")  # You can change this to a redirect to a success page
+            return redirect('start_page')  # You can change this to a redirect to a success page
         else:
             return render(request, 'register.html', {'form': form, 'error': 'Form is invalid'})
     else:

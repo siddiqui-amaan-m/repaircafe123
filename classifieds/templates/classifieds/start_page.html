@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classifieds - Start Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #0078D7;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-bar input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .classifieds-list {
+            margin: 20px;
+        }
+        .classified-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: white;
+        }
+        .classified-item h3 {
+            margin: 0 0 10px;
+        }
+        .classified-item p {
+            margin: 5px 0;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #0078D7;
+            color: white;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Classifieds</h1>
+        <a href="/profile/">👤 Profile</a>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for classifieds... 🔍">
+    </div>
+
+    <!-- Classifieds List -->
+    <div class="classifieds-list">
+        {% for ad in classifieds %}
+            <div class="classified-item">
+                <h3>{{ ad.title }}</h3>
+                <p>{{ ad.description }}</p>
+                <p><strong>Price:</strong> {{ ad.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Footer Navigation -->
+    <footer>
+        <a href="/messages/">💬 Messages</a>
+        <a href="/insert_ad/">➕ Insert Advertisement</a>
+        <a href="/notifications/">🔔 Notifications</a>
+    </footer>
+</body>
+</html>
